@@ -40,7 +40,7 @@ const HeroCarousel = () => {
   }, [slides.length]);
 
   return (
-    <section className="relative w-full h-screen overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden animate-fade-in">
       {/* Slides */}
       {slides.map((slide, index) => (
         <div
@@ -60,10 +60,10 @@ const HeroCarousel = () => {
       <div className="absolute inset-0 bg-black bg-opacity-50"></div>
 
       {/* Contenido del carrusel */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center px-4 ">
         {/* Logo adicional (verifica si está definido) */}
         {typeof logo !== "undefined" && (
-          <div className=" m-8 flex justify-center">
+          <div className=" m-8 flex justify-center animate-slideDown">
             <img
               src={logo}
               alt="Logo"
@@ -71,7 +71,7 @@ const HeroCarousel = () => {
             />
           </div>
         )}
-        <h1 className="text-5xl font-extrabold mb-4 drop-shadow-md">
+        <h1 className="text-5xl font-extrabold mb-4 drop-shadow-md animate-slideDown">
           {slides[currentSlide].title}
         </h1>
         <p className="text-lg mb-6 drop-shadow-sm">

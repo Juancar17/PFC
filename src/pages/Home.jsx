@@ -6,7 +6,7 @@ import Ventajas from "./Ventajas";
 const Home = () => {
   return (
     <>
-      <div className="flex flex-col min-h-screen overflow-hidden ">
+      <div className="flex flex-col min-h-screen overflow-hidden animate-slideIn">
         <HeroCarousel />
       </div>
       {/* Productos Destacados */}

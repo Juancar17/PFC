@@ -1,7 +1,7 @@
 import axios from "axios";
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Registro = () => {
   const [formData, setFormData] = useState({
@@ -25,8 +25,17 @@ const Registro = () => {
     e.preventDefault();
     setModal({ visible: false, message: "", success: false });
 
+    // Validaciones locales
+    if (!formData.nombre || !formData.email || !formData.password) {
+      setModal({
+        visible: true,
+        message: "Todos los campos son obligatorios",
+        success: false,
+      });
+      return;
+    }
+
     try {
-      // Cambia la URL al endpoint de registro
       const response = await axios.post(
         "http://localhost/Tienda-2/back-end/api/users/register.php",
         formData
@@ -44,7 +53,6 @@ const Registro = () => {
         navigate("/login");
       }, 1500); // Retraso opcional para que el usuario vea el mensaje
     } catch (err) {
-      // Manejar errores del servidor
       setModal({
         visible: true,
         message: err.response?.data?.error || "Error al registrar usuario",
@@ -91,6 +99,7 @@ const Registro = () => {
             Crea tu cuenta
           </h3>
           <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Campo Nombre */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -110,6 +119,7 @@ const Registro = () => {
               />
             </motion.div>
 
+            {/* Campo Email */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -129,6 +139,7 @@ const Registro = () => {
               />
             </motion.div>
 
+            {/* Campo Contraseña */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -157,15 +168,6 @@ const Registro = () => {
               Registrarse
             </motion.button>
           </form>
-
-          <div className="mt-6 text-center">
-            <p className="text-sm text-white">
-              ¿Ya tienes una cuenta?{" "}
-              <Link to="/login" className="text-blue-300 hover:underline">
-                Inicia sesión aquí
-              </Link>
-            </p>
-          </div>
         </motion.div>
       </motion.div>
 

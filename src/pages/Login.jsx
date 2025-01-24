@@ -10,6 +10,7 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
 
+  // Maneja el envío del formulario de login
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
@@ -20,12 +21,20 @@ const Login = () => {
         "http://localhost/Tienda-2/back-end/api/users/login.php",
         { email, password }
       );
-      setSuccess("Inicio de sesión exitoso");
-      localStorage.setItem("token", response.data.token);
-      setTimeout(() => {
-        navigate("/");
-        window.location.reload(); // Recargar la página
-      }, 500);
+
+      // Verifica si el inicio de sesión fue exitoso
+      if (response.data?.token) {
+        setSuccess("Inicio de sesión exitoso");
+        localStorage.setItem("token", response.data.token); // Almacena el token en localStorage
+
+        // Redirige al usuario después de un breve retraso
+        setTimeout(() => {
+          navigate("/");
+          window.location.reload(); // Opcional: recarga la página
+        }, 500);
+      } else {
+        throw new Error(response.data?.error || "Error desconocido");
+      }
     } catch (err) {
       setError(err.response?.data?.error || "Error al iniciar sesión");
     }

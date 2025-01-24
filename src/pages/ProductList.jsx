@@ -36,7 +36,7 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-black via-[#1a1a1a] to-[#4d79ff] p-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-custom-radial p-8">
       <motion.h2
         className="text-4xl font-bold text-white mb-8"
         initial={{ opacity: 0, y: -50 }}

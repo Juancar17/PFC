@@ -1,40 +1,17 @@
 <?php
-require_once('db.php');
+require_once 'db.php'; // Ajusta esta ruta según tu estructura de carpetas
 
-function obtenerUsuarios($conexion) {
-    $consulta = "SELECT * FROM usuarios";
-    try {
-        $resultado = mysqli_query($conexion, $consulta);
-        if (!$resultado) {
-            throw new Exception("Error en la consulta: " . mysqli_error($conexion));
-        }
-        return $resultado;
-    } catch (Exception $e) {
-        error_log($e->getMessage());
-        return false;
-    }
-}
+// Prueba la conexión con Supabase
+$response = supabase_request('users', 'POST', [
+    'name' => 'Producto C',
+    'price' => 75.5,
+    'stock' => 20
+]);
 
-if ($conexion = mysqli_connect($host, $user, $password, $dbname)) {
-    mysqli_set_charset($conexion, "utf8");
-
-    $datos = obtenerUsuarios($conexion);
-    if ($datos && mysqli_num_rows($datos) > 0) {
-        echo "<ul>";
-        while ($fila = mysqli_fetch_array($datos)) {
-            echo "<li>";
-            echo "<a href='mostrar_contacto.php?id=" . htmlspecialchars($fila['id']) . "'>";
-            echo htmlspecialchars($fila['nombre']);;
-            echo "</a>";
-            echo "</li>";
-        }
-        echo "</ul>";
-    } else {
-        echo "<p>No hay contactos disponibles.</p>";
-    }
-
-    mysqli_close($conexion);
+if (isset($response['error'])) {
+    echo 'Error: ' . $response['error'];
 } else {
-    error_log("Error al conectar a la base de datos: " . mysqli_connect_error());
-    echo "Error al conectar a la base de datos.";
+    echo 'Respuesta: ';
+    print_r($response);
 }
+?>

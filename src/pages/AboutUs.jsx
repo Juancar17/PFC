@@ -33,16 +33,16 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <section className="bg-black text-white py-16 px-8" id="nosotros">
+    <section className="bg-custom-radial text-black py-16 px-8" id="nosotros">
       <div className="container mx-auto space-y-16 mt-24">
         {/* NOSOTROS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
-            <h2 className="text-6xl font-extrabold mb-6 text-[#4d79ff]">
+            <h2 className="text-6xl font-extrabold mb-6 text-[#DEC55D]">
               NOSOTROS
             </h2>
             <p className="text-lg mb-8 animate-fadeIn">
-              En <span className="text-[#4d79ff]">Kafé con K</span>, ofrecemos
+              En <span className="text-[#DEC55D]">Kafé con K</span>, ofrecemos
               el lugar perfecto para que tú y tus mascotas disfruten de momentos
               inolvidables. Nuestro espacio está diseñado para brindar
               comodidad, calidad y felicidad, tanto para ti como para tus amigos
@@ -80,11 +80,11 @@ const AboutUs = () => {
         {/* NUESTRA VISIÓN */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mt-12 animate-fadeIn">
           <div>
-            <h2 className="text-6xl font-extrabold mb-6 text-[#4d79ff]">
+            <h2 className="text-6xl font-extrabold mb-6 text-[#DEC55D]">
               NUESTRA VISIÓN
             </h2>
             <p className="text-lg mb-8 animate-fadeIn">
-              En <span className="text-[#4d79ff]">Kafé con K</span>, nos
+              En <span className="text-[#DEC55D]">Kafé con K</span>, nos
               esforzamos por ser más que una cafetería. Queremos ser el lugar
               donde las personas y sus mascotas creen recuerdos imborrables,
               celebren momentos especiales y encuentren felicidad en los
@@ -102,7 +102,7 @@ const AboutUs = () => {
         {/* FROM THE BEST COFFEE BEANS */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div>
-            <h2 className="text-6xl font-extrabold mb-6 text-[#4d79ff]">
+            <h2 className="text-6xl font-extrabold mb-6 text-[#DEC55D]">
               DE LOS MEJORES GRANOS DE KAFÉ
             </h2>
             <p className="text-lg mb-8 text-gray-300 animate-fadeIn animate-fadeIn">
@@ -130,11 +130,11 @@ const AboutUs = () => {
         {/* OUR MISSION */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center animate-fadeIn">
           <div>
-            <h2 className="text-6xl font-extrabold mb-6 text-[#4d79ff]">
+            <h2 className="text-6xl font-extrabold mb-6 text-[#DEC55D]">
               NUESTRA MISION
             </h2>
             <p className="text-lg mb-8 text-gray-300 ">
-              En <span className="text-[#4d79ff]">Kafé con K</span>, nuestra
+              En <span className="text-[#DEC55D]">Kafé con K</span>, nuestra
               misión es ser un lugar donde las conexiones florecen, no solo
               entre personas, sino también con nuestras mascotas. Nos dedicamos
               a ofrecer productos de alta calidad, un servicio excepcional y un
